@@ -92,54 +92,54 @@ function teamBuilder() {
             }
         ]
 
-            ).then(function (answers) {
-                switch (answers.role) {
-                    case "Intern":
-                        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-                        employees.push(intern);
-                        addAnother();
-                        break;
-                    case "Engineer":
-                        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-                        employees.push(engineer);
-                        addAnother();
-                        break;
-                    case "Manager":
-                        const manager = new Manager(answers.name, answers.id, answers.email, answers.officenumber);
-                        employees.push(manager);
-                        addAnother();
-                    }
-                })
-        };   
+        ).then(function (answers) {
+            switch (answers.role) {
+                case "Intern":
+                    const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+                    employees.push(intern);
+                    addAnother();
+                    break;
+                case "Engineer":
+                    const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+                    employees.push(engineer);
+                    addAnother();
+                    break;
+                case "Manager":
+                    const manager = new Manager(answers.name, answers.id, answers.email, answers.officenumber);
+                    employees.push(manager);
+                    addAnother();
+            }
+        })
+};
 
 teamBuilder();
 
 function addAnother() {
     inquirer
-                            .prompt([
-                                {
-                                    type: "list",
-                                    message: "Would you like to add another employee?",
-                                    name: "more",
-                                    choices: [
-                                        "yes",
-                                        "no"
-                                    ]
-                                }
+        .prompt([
+            {
+                type: "list",
+                message: "Would you like to add another employee?",
+                name: "more",
+                choices: [
+                    "yes",
+                    "no"
+                ]
+            }
 
-                            ])
-                            .then(function (answers) {
-                                if (answers.more === "yes") {
-                                    teamBuilder();
-                                } else {
-                                    fs.writeFile(outputPath, render(employees), function (err) {
-                                        if (err) {
-                                            return console.log(err);
-                                        }
-                                        console.log("SUCCESS!")
-                                    })
-                                }
+        ])
+        .then(function (answers) {
+            if (answers.more === "yes") {
+                teamBuilder();
+            } else {
+                fs.writeFile(outputPath, render(employees), function (err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log("SUCCESS!")
+                })
+            }
 
-                            })
+        })
 }
 

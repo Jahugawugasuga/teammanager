@@ -5,16 +5,14 @@ class Manager extends Employee {
     constructor (name, id, email, officeNumber) {
         super(name, id, email);
         this.officeNumber = officeNumber;
-        this.role = "Manager";
-        this.getOfficeNumber = function () {
+    }
+        getOfficeNumber () {
             return this.officeNumber;
         }
-        
+        getRole(){
+            return "Manager"
+        }
 
-    };
+
 };
 module.exports = Manager;
-// const manager = new Manager (6, 2, "Manager");
-// console.log(`${this.role}`)
-// console.log(`${manager.role}`)
-// console.log(`${manager.school}`)

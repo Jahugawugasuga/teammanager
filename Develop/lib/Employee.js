@@ -4,22 +4,24 @@ class Employee {
         this.name = name;
         this.id = id;
         this.email = email;
-        this.role = "Employee";
-        this.getName = function () {
+       
+    }
+        getName () {
           return this.name 
         }
-        this.getId = function () {
+
+        getId() {
             return this.id 
         }
-        this.getEmail = function () {
+        getEmail () {
             return this.email 
         }
-        this.getRole = function () {
-            return this.role 
+        getRole () {
+            return "Employee"
         }
 
 
-    }
+    
 
 
 

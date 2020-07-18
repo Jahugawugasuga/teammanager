@@ -105,7 +105,7 @@ function teamBuilder() {
                     addAnother();
                     break;
                 case "Manager":
-                    const manager = new Manager(answers.name, answers.id, answers.email, answers.officenumber);
+                    const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
                     employees.push(manager);
                     addAnother();
             }
